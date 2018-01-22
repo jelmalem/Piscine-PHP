@@ -1,1 +1,1 @@
-CREATE DATABASE db_ddevico;
+CREATE DATABASE db_jelmalem;
