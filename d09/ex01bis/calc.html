@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+		<head>
+		<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+		<title>Calc</title>
+	</head>
+	<body>
+		<input id="gauche" type="text" name="gauche"/>
+		<select id="op">
+			<option value="add">+</option>
+			<option value="sub">-</option>
+			<option value="mult">*</option>
+			<option value="div">/</option>
+			<option value="mod">%</option>
+		</select>
+		<input id="droit" type="text" name="droit"/>
+		<input id="submit" type="submit" value="Try me !"/>
+		<script>
+			var submit = $("#submit");
+			var gauche = $("#gauche");
+			var droit = $("#droit");
+			var op = $("#op");
+			submit.on( "click", my_func );
+			
+			$(document.body).delay(30000).show( 1, repeat );
+			function my_func() {
+				var res;
+				var nbgauche = gauche.val();
+				var nbdroit = droit.val();
+				var operator = op.val();
+				if ( !nbdroit || !nbgauche || !$.isNumeric( nbgauche ) || !$.isNumeric( nbdroit ) || nbdroit < 0 || nbgauche < 0 ) {
+					alert( "Error :(" );
+					return false;
+				}
+				else
+				{
+					a = parseInt(nbgauche);
+					b = parseInt(nbdroit);
+					if (operator == "add")
+						res = a + b;
+					else if (operator == "sub")
+						res = a - b;
+					else if (operator == "mult")
+						res = a * b;
+					else if (operator == "div")
+					{
+						if (b === 0)
+							res = "It's over 9000!";
+						else
+							res = a / b;
+					}
+					else if (operator == "mod")
+					{
+						if (b === 0)
+							res = "It's over 9000!";
+						else
+							res = a % b;
+					}
+					console.log(res);
+					alert(res);
+				}
+			}
+			function repeat() {
+				alert( "Please, use me..." )
+				$(document.body).delay(30000).show( 1, repeat );
+			}
+		</script>
+	</body>
+</html>

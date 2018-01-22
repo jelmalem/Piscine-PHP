@@ -1,0 +1,33 @@
+<- Matrix ----------------------------------------------------------------------
+The Matrix class defines a matrix according to the following parameters:
+
+The class constructor expects an array. Expected keys are the following:
+
+'Preset': type of matrix to build, mandatory. The value must be one of
+previous class constants.
+
+'Scale': the scale factor, when compulsory 'preset' is SCALE.
+
+'Angle': rotation angle in radians, when compulsory 'preset' is RX, RY or RZ.
+
+'Hybrid': translation vector, mandatory when 'preset' is TRANSLATION.
+
+'FOV' Vision of the projection fields in degrees, when compulsory 'preset' 
+PROJECTION worth.
+
+'Ratio': ratio of the projected image, when required 'preset' is PROJECTION.
+
+'Near': near clipping plane of the projection, when compulsory 'preset' is
+PROJECTION.
+
+'Far': far clipping plane of the projection, when compulsory 'preset' is
+PROJECTION.
+
+It puts at disposal the following methods:
+
+Mult Matrix (Matrix $ rhs) returns a new matrix multiplication résulat
+the two matrices.
+
+Vertex transformVertex (Vertex $ vtx) returns a new vertex result
+processing of the vertex by the matrix.
+---------------------------------------------------------------------- Matrix ->

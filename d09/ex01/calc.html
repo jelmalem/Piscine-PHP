@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Calc</title>
+	</head>
+	<body>
+		<input id="gauche" type="text" name="gauche"/>
+		<select id="op">
+			<option value="add">+</option>
+			<option value="sub">-</option>
+			<option value="mult">*</option>
+			<option value="div">/</option>
+			<option value="mod">%</option>
+		</select>
+		<input id="droit" type="text" name="droit"/>
+		<input onclick="my_func()" type="submit" value="Try me !"/>
+
+		<script>
+			setInterval(function() {alert("Please, use me..."); }, 30000);
+			function my_func() {
+				var res;
+				var gauche = parseFloat(document.getElementById("gauche").value);
+				var droit = parseFloat(document.getElementById("droit").value);
+				var op = document.getElementById("op").value;
+				if (!Number.isInteger(gauche) || !Number.isInteger(droit) || droit < 0 || gauche < 0 
+					|| !gauche || !droit)
+					alert('Error :(');
+				else
+				{
+					if (op == "add")
+						res = gauche + droit;
+					else if (op == "sub")
+						res = gauche - droit;
+					else if (op == "mult")
+						res = gauche * droit;
+					else if (op == "div")
+					{
+						if (droit === 0)
+							res = "It's over 9000!";
+						else
+							res = gauche / droit;
+					}
+					else if (op == "mod")
+					{
+						if (droit === 0)
+							res = "It's over 9000!";
+						else
+							res = gauche % droit;
+					}
+					console.log(res);
+					alert(res);
+				}
+			}
+		</script>
+	</body>
+</html>

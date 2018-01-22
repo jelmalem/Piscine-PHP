@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+	<head>
+		<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+		<title>balloon</title>
+	</head>
+	<body>
+		<div id="mydiv" style="width: 200px; height: 200px; background-color: red; border-radius: 100%;">
+		</div>
+		<script>
+			$("#mydiv" ).on("click", onclick );
+			$("#mydiv" ).on( "mouseout", mouseout );
+			var i = 98;
+			function color(i) {
+				if (i % 3 == 0)
+					$("#mydiv" ).css( "background-color","green");
+				else if (i % 3 == 1)
+					$("#mydiv" ).css( "background-color","blue");
+				else if (i % 3 == 2)
+					$("#mydiv" ).css( "background-color","red");
+			}
+			function onclick() {
+				mydiv = $( this );
+				var width = $( this ).width();
+				i++;
+				color(i);
+				if (width == 420)
+				{
+					mydiv.width( "200px" );
+					mydiv.height( "200px" );
+				}
+				else
+				{
+					mydiv.width( width + 10 );
+					mydiv.height( width + 10 );
+				}
+			}
+			function mouseout() {
+				var mydiv = $( "#mydiv" );
+				var width = mydiv.width();
+				if ( width > 200 ) 
+				{
+					i--;
+					color(i);
+					mydiv.width ( width - 5 );
+					mydiv.height( width - 5 );
+				}
+			}
+		</script>
+	</body>
+</html>
